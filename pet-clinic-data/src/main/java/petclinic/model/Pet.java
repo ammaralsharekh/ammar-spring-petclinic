@@ -1,4 +1,4 @@
-package ammar.springfreamwork.petclinic.model;
+package petclinic.model;
 
 import java.time.LocalDate;
 
