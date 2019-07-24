@@ -1,4 +1,4 @@
-package petclinic.model;
+package ammar.springfreamwork.petclinic.odel;
 
 public class Person {
     private String  firstName;
