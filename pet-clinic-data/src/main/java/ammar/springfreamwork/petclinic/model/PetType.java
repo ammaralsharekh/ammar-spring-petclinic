@@ -1,4 +1,4 @@
-package ammar.springfreamwork.petclinic.odel;
+package ammar.springfreamwork.petclinic.model;
 
 public class PetType {
     private String name;
