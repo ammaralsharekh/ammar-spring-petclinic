@@ -14,15 +14,14 @@ public class DataLoder implements CommandLineRunner {
   private  final OwnerService ownerService;
   private  final VetService vetService;
 
-  public DataLoder()
-  {
-      ownerService=new OwnerServiceMap();
-      vetService = new VetServiceMap();
-  }
+    public DataLoder(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
+    }
 
-   @Override
+    @Override
     public void run(String... args) throws Exception {
-
+        loadData();
     }
 
     private void loadData() {
