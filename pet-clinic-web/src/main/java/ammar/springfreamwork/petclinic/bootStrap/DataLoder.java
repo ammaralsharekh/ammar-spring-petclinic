@@ -1,11 +1,11 @@
 package ammar.springfreamwork.petclinic.bootStrap;
 
 import ammar.springfreamwork.petclinic.model.Owner;
+import ammar.springfreamwork.petclinic.model.PetType;
 import ammar.springfreamwork.petclinic.model.Vet;
 import ammar.springfreamwork.petclinic.services.OwnerService;
+import ammar.springfreamwork.petclinic.services.PetTypeService;
 import ammar.springfreamwork.petclinic.services.VetService;
-import ammar.springfreamwork.petclinic.services.map.OwnerServiceMap;
-import ammar.springfreamwork.petclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,10 +13,12 @@ import org.springframework.stereotype.Component;
 public class DataLoder implements CommandLineRunner {
   private  final OwnerService ownerService;
   private  final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoder(OwnerService ownerService, VetService vetService) {
+    public DataLoder(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
@@ -25,6 +27,16 @@ public class DataLoder implements CommandLineRunner {
     }
 
     private void loadData() {
+
+        PetType dog;
+        dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDogPetType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("Cat");
+        PetType savedCatPetType = petTypeService.save(cat);
+
         Owner owner1 = new Owner();
        // owner1.setId(1L);
         owner1.setFirstName("Michael");
