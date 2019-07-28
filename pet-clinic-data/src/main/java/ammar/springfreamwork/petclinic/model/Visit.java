@@ -15,12 +15,12 @@ public class Visit extends BaseEntity {
         this.date = date;
     }
 
-    public String getDescreption() {
-        return Descreption;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescreption(String descreption) {
-        Descreption = descreption;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Pet getPet() {
