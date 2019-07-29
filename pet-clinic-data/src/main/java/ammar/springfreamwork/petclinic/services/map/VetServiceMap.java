@@ -1,6 +1,8 @@
 package ammar.springfreamwork.petclinic.services.map;
 
+import ammar.springfreamwork.petclinic.model.Speciality;
 import ammar.springfreamwork.petclinic.model.Vet;
+import ammar.springfreamwork.petclinic.services.SpecialtyService;
 import ammar.springfreamwork.petclinic.services.VetService;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +10,13 @@ import java.util.Set;
 
 @Service
 public class VetServiceMap  extends AbstractMapService<Vet, Long> implements VetService {
+
+    private final SpecialtyService specialtyService;
+
+    public VetServiceMap(SpecialtyService specialtyService) {
+        this.specialtyService = specialtyService;
+    }
+
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
@@ -20,7 +29,17 @@ public class VetServiceMap  extends AbstractMapService<Vet, Long> implements Vet
 
     @Override
     public Vet save(Vet object) {
-        return super.save( object);
+
+        if (object.getSpecialities().size() > 0){
+            object.getSpecialities().forEach(speciality -> {
+                if(speciality.getId() == null){
+                    Speciality savedSpecialty = specialtyService.save(speciality);
+                    speciality.setId(savedSpecialty.getId());
+                }
+            });
+        }
+
+        return super.save(object);
     }
 
     @Override

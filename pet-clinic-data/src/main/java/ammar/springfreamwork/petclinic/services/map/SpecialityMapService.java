@@ -1,13 +1,13 @@
 package ammar.springfreamwork.petclinic.services.map;
 
 import ammar.springfreamwork.petclinic.model.Speciality;
-import ammar.springfreamwork.petclinic.services.SpecialtiesService;
+import ammar.springfreamwork.petclinic.services.SpecialtyService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialtiesService {
+public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialtyService {
 
     @Override
     public Set<Speciality> findAll() {
