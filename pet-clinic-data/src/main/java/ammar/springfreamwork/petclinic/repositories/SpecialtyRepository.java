@@ -1,6 +1,7 @@
 package ammar.springfreamwork.petclinic.repositories;
 
-import guru.springframework.sfgpetclinic.model.Speciality;
+
+import ammar.springfreamwork.petclinic.model.Speciality;
 import org.springframework.data.repository.CrudRepository;
 
 /**
