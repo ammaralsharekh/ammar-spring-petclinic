@@ -1,13 +1,15 @@
 package ammar.springfreamwork.petclinic.services.map;
 
 import ammar.springfreamwork.petclinic.model.Pet;
-import ammar.springfreamwork.petclinic.services.CrudService;
+
 import ammar.springfreamwork.petclinic.services.PetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
