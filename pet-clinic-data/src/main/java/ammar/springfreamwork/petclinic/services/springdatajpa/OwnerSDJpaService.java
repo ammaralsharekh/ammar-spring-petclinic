@@ -5,11 +5,13 @@ import ammar.springfreamwork.petclinic.repositories.OwnerRepository;
 import ammar.springfreamwork.petclinic.repositories.PetRepository;
 import ammar.springfreamwork.petclinic.repositories.PetTypeRepository;
 import ammar.springfreamwork.petclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class OwnerSDJpaService  implements OwnerService {
 
     private final OwnerRepository ownerRepository;
